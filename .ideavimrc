@@ -1,0 +1,148 @@
+﻿nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+" >>
+" vim 自身（非插件）快捷键
+
+" 定义快捷键到行首和行尾
+inoremap jj <esc>
+
+" 设置快捷键遍历子窗口
+nnoremap <Leader>w <C-w><C-w>
+"nnoremap <A-c> <C-w>c
+"nnoremap <A-w> <C-w>v
+"nnoremap <A-h> <C-w>h
+"nnoremap <A-j> <C-w>j
+"nnoremap <A-k> <C-w>k
+"nnoremap <A-l> <C-w>l
+
+" 插入模式下光标移动
+"inoremap <C-h> <Left>
+"inoremap <C-j> <Down>
+"inoremap <C-k> <Up>
+"inoremap <C-l> <Right>
+
+
+" <<
+
+" >>
+" 其他
+
+" 开启实时搜索功能
+set incsearch
+
+" 搜索时大小写不敏感
+set ignorecase
+
+" 关闭兼容模式
+set nocompatible
+
+" vim 自身命令行模式智能补全
+set wildmenu
+
+" vim 默认使用系统剪切板
+set clipboard=unnamed
+
+" surround插件
+set surround
+" <<
+
+" >>
+" 营造专注气氛
+
+" 禁止光标闪烁
+set gcr=a:block-blinkon0
+" <<
+
+" >>
+" 辅助信息
+
+" 总是显示状态栏
+set laststatus=2
+
+" 显示光标当前位置
+set ruler
+
+" 开启行号显示
+set number
+set relativenumber
+set so=3
+
+" 高亮显示当前行/列
+set cursorline
+set cursorcolumn
+
+" 高亮显示搜索结果
+set hlsearch
+
+" <<
+
+" >>
+" 其他美化
+
+" 禁止折行
+set nowrap
+
+" <<
+
+" >>
+" 语法分析
+
+" 开启语法高亮功能
+syntax enable
+" 允许用指定语法高亮配色方案替换默认方案
+syntax on
+
+" <<
+
+" >>
+" IDE相关
+" GotoImplementation
+:map gp :action GotoImplementation<CR>
+" GotoSuperMethod
+:map gu :action GotoSuperMethod<CR>
+" JumpToLastChange
+:map gl :action JumpToLastChange<CR>
+
+" 调试-d
+" Run
+:map <Leader>rr :action Run<CR>
+" Debug
+:map <Leader>db :action Debug<CR>
+" Attach
+:map <Leader>at :action AndroidConnectDebuggerAction<CR>
+" Run ADB Clear
+:map <Leader>cl :action com.developerphil.adbidea.action.ClearDataAndRestartAction<CR>
+" Rebuild Project
+:map <Leader>rb :action RebuildGradleProject<CR>
+" SyncProject
+:map <Leader>sn :action Android.SyncProject<CR>
+
+" GotoBookmark0
+:map `A :action GotoBookmark0<CR>
+" GotoBookmark1
+:map `B :action GotoBookmark1<CR>
+" GotoBookmark2
+:map `C :action GotoBookmark2<CR>
+" GotoBookmark3
+:map `D :action GotoBookmark3<CR>
+" GotoBookmark4
+:map `E :action GotoBookmark4<CR>
+
+" ToggleBookmark0
+:map mA :action ToggleBookmark0<CR>
+" ToggleBookmark1
+:map mB :action ToggleBookmark1<CR>
+" ToggleBookmark2
+:map mC :action ToggleBookmark2<CR>
+" ToggleBookmark3
+:map mD :action ToggleBookmark3<CR>
+" ToggleBookmark4
+:map mE :action ToggleBookmark4<CR>
+
+" 重构
+" Rename
+:map <Leader>rn :action RenameElement<CR>
+" ChangeSignature
+:map <Leader>cs :action ChangeSignature<CR>
+" <<
