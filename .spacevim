@@ -1,0 +1,57 @@
+﻿function! Layers()
+    Layer 'fzf'
+    Layer 'unite'
+    Layer 'better-defaults'
+    " For chinese users
+    Layer 'chinese'
+endfunction
+
+function! UserInit()
+" 语法检查
+Plug 'w0rp/ale'
+" 缩进
+Plug 'nathanaelkane/vim-indent-guides'
+" cpp/h快速切换
+Plug 'derekwyatt/vim-fswitch'
+endfunction
+
+function! UserConfig()
+" 配色方案
+let g:airline_powerline_fonts=1
+
+" 禁止光标闪烁
+set gcr=n-v-c:block-Cursor/lCursor-blinkon0,ve:ver35-Cursor-blinkon0,o:hor50-Cursor-blinkon0,i-ci:ver25-Cursor/lCursor-blinkon0,r-cr:hor20-Cursor/lCursor-blinkon0,sm:block-Cursor-blinkon0
+
+" 禁止显示滚动条
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+
+" 禁止显示菜单和工具条
+set guioptions-=m
+set guioptions-=T
+
+" 自适应不同语言的智能缩进
+filetype indent on
+" 将制表符扩展为空格
+set expandtab
+" 设置编辑时制表符占用空格数
+set tabstop=4
+" 设置格式化时制表符占用空格数
+set shiftwidth=4
+" 让 vim 把连续数量的空格视为一个制表符
+set softtabstop=4
+
+" 随 vim 自启动
+let g:indent_guides_enable_on_vim_startup=1
+" 从第二层开始可视化显示缩进
+let g:indent_guides_start_level=2
+" 色块宽度
+let g:indent_guides_guide_size=1
+" 快捷键 i 开/关缩进可视化
+:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+
+" *.cpp 和 *.h 间切换
+nmap <silent> <Leader>sw :FSHere<cr>
+endfunction
