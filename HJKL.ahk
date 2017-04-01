@@ -6,6 +6,11 @@ GroupAdd,editor,ahk_exe studio64.exe
 GroupAdd,editor,ahk_exe clion64.exe
 GroupAdd,editor,ahk_exe gvim.exe
 
+;中文输入分组
+GroupAdd,cn,ahk_exe TortoiseGitProc.exe
+GroupAdd,cn,ahk_exe RTXLite.exe
+GroupAdd,cn,ahk_exe QQ.exe
+
 ;从剪贴板输入到界面
 sendbyclip(var_string)
 {
@@ -57,6 +62,37 @@ ActivateAndOpen(t,p)
     WinActivate
     return
   }
+}
+
+;监控消息回调ShellMessage，并自动设置输入法
+Gui +LastFound
+hWnd := WinExist()
+DllCall( "RegisterShellHookWindow", UInt,hWnd )
+MsgNum := DllCall( "RegisterWindowMessage", Str,"SHELLHOOK" )
+OnMessage( MsgNum, "ShellMessage")
+
+ShellMessage( wParam,lParam ) {
+	If ( wParam = 1 )
+	{
+		WinGetclass, WinClass, ahk_id %lParam%
+		;MsgBox,%Winclass%
+		Sleep, 1000
+		WinActivate,ahk_class %Winclass%
+		;WinGetActiveTitle, Title
+		;MsgBox, The active window is "%Title%".
+		IfWinActive,ahk_group cn
+		{
+			setChineseLayout()
+			TrayTip,AHK, 已自动切换到中文输入法
+			return
+		}
+		IfWinActive,ahk_group editor
+		{
+			setEnglishLayout()
+			TrayTip,AHK, 已自动切换到英文输入法
+			return
+		}
+	}
 }
 
 ;打开Android Studio
@@ -112,8 +148,8 @@ return
 return
 
 ;delete
-^+`;::send {Delete}
-return
+;^+`;::send {Delete}
+;return
 
 ;在指定编辑器下
 #IfWinActive,ahk_group editor
