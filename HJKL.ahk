@@ -83,13 +83,13 @@ ShellMessage( wParam,lParam ) {
 		IfWinActive,ahk_group cn
 		{
 			setChineseLayout()
-			TrayTip,AHK, 已自动切换到中文输入法
+			;TrayTip,AHK, 已自动切换到中文输入法
 			return
 		}
 		IfWinActive,ahk_group editor
 		{
 			setEnglishLayout()
-			TrayTip,AHK, 已自动切换到英文输入法
+			;TrayTip,AHK, 已自动切换到英文输入法
 			return
 		}
 	}

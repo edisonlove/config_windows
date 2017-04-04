@@ -144,7 +144,9 @@ nnoremap <Leader>wv <C-w>v
 " ChangeSignature
 :map <Leader>rf :action ChangeSignature<CR>
 " Generate
-:map <Leader>fg :action ChangeSignature<CR>
+:map <Leader>rg :action ChangeSignature<CR>
+" IntroduceVariable
+:map <Leader>rv :action IntroduceVariable<CR>
 
 " 调试-d
 " Run
