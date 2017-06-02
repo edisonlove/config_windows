@@ -9,7 +9,9 @@ nnoremap <Leader>p "+p
 vnoremap <Leader>p "+p
 vnoremap <Leader>y "+y
 
-
+nmap <Del> ciw
+imap <Del> <Esc>ciw
+nmap <Tab> viw
 
 " 插入模式下光标移动
 "inoremap <C-h> <Left>
@@ -144,7 +146,7 @@ nnoremap <Leader>wv <C-w>v
 " ChangeSignature
 :map <Leader>rf :action ChangeSignature<CR>
 " Generate
-:map <Leader>rg :action ChangeSignature<CR>
+:map <Leader>rg :action Generate<CR>
 " IntroduceVariable
 :map <Leader>rv :action IntroduceVariable<CR>
 
@@ -169,6 +171,8 @@ nnoremap <Leader>wv <C-w>v
 :map <Leader>cp :action CloseProject<CR>
 " ShowIntentionActions
 :map <Leader>fs :action ShowIntentionActions<CR>
+" MakeGradleProject
+:map <Leader>mk :action MakeGradleProject<CR>
 
 " 工具流-b
 " ActivateAndroidMonitorToolWindow
@@ -181,6 +185,8 @@ nnoremap <Leader>wv <C-w>v
 :map <Leader>bm :action ActivateMessagesToolWindow<CR>
 " ActivateGradleConsoleToolWindow
 :map <Leader>bg :action ActivateGradleConsoleToolWindow<CR>
+" ActivateDebugToolWindow
+:map <Leader>bd :action ActivateDebugToolWindow<CR>
 
 " GotoBookmark0
 :map `A :action GotoBookmark0<CR>

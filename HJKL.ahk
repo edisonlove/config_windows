@@ -5,6 +5,7 @@ SetCapsLockState,AlwaysOff
 GroupAdd,editor,ahk_exe studio64.exe
 GroupAdd,editor,ahk_exe clion64.exe
 GroupAdd,editor,ahk_exe gvim.exe
+GroupAdd,editor,ahk_exe Code.exe
 
 ;中文输入分组
 GroupAdd,cn,ahk_exe TortoiseGitProc.exe
@@ -25,13 +26,15 @@ sendbyclip(var_string)
 
 setChineseLayout(){
 	;发送中文输入法切换快捷键，请根据实际情况设置。
-	Send {Ctrl Down}{2}
-	Send {Ctrl Up}
+	;Send {Ctrl Down}{2}
+	;Send {Ctrl Up}
+	Send ^2
 }
 setEnglishLayout(){
 	;发送英文输入法切换快捷键
-	Send {Ctrl Down}{1}    
-	Send {Ctrl Up}
+	;Send {Ctrl Down}{1}    
+	;Send {Ctrl Up}
+	Send ^1
 }
 
 ;激活窗口
@@ -100,7 +103,7 @@ ShellMessage( wParam,lParam ) {
 return
 
 ;打开CLion
-#c::ActivateAndOpen("CLion","clion64.exe")
+#c::ActivateAndOpen("Visual Studio Code","Code.exe")
 return
 
 ;打开pycharm
@@ -150,6 +153,10 @@ return
 ;delete
 ;^+`;::send {Delete}
 ;return
+
+;关闭窗口
+!Esc::!F4
+return
 
 ;在指定编辑器下
 #IfWinActive,ahk_group editor
