@@ -108,13 +108,21 @@ nnoremap <Leader>wv <C-w>v
 " Revert
 :map <Leader>gr :action ChangesView.Revert<CR>
 " Rollback
-:map <Leader>gb :action Vcs.RollbackChangedLines<CR>
+:map <Leader>go :action Vcs.RollbackChangedLines<CR>
 " Vcs.UpdateProject
-:map <Leader>gu :action Vcs.UpdateProject<CR>
+:map <Leader>gg :action Vcs.UpdateProject<CR>
 " Compare.LastVersion
 :map <Leader>gd :action Compare.LastVersion<CR>
 " Vcs.Push
 :map <Leader>gp :action Vcs.Push<CR>
+" Git.Merge                                         
+:map <Leader>gm :action Git.Merge<CR>
+" Git.Stash                                         
+:map <Leader>gs :action Git.Stash<CR>
+" Git.Unstash                                         
+:map <Leader>gu :action Git.Unstash<CR>
+" Git.Branches
+:map <Leader>gb :action Git.Branches<CR>
 
 " 查找流-f
 " RecentFiles
